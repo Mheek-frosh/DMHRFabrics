@@ -97,8 +97,8 @@ export default function ProductShowcase() {
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
                 
-                {/* Hover Add to Cart */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
+                {/* Mobile-Friendly Add to Cart */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
                   <button className="bg-white text-lust-dark font-medium py-2 px-4 rounded flex items-center gap-2 w-full justify-center hover:bg-lust-red hover:text-white transition-colors">
                     <ShoppingBag className="w-4 h-4" /> Add to Cart
                   </button>

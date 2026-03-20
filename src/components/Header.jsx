@@ -69,10 +69,16 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button className="md:hidden text-lust-dark dark:text-white p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Actions & Toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <button className="text-gray-700 dark:text-gray-300 hover:text-lust-red transition-colors relative p-2" aria-label="Cart">
+            <ShoppingBag className="w-5 h-5" />
+            <span className="absolute top-0 right-0 bg-lust-red text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </button>
+          <button className="text-lust-dark dark:text-white p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle Menu">
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
