@@ -33,19 +33,51 @@ const products = [
     oldPrice: null,
     image: 'https://images.unsplash.com/photo-1582214959146-24e5d8ea37a2?w=500&auto=format&fit=crop&q=60',
     badge: 'Hot'
+  },
+  {
+    id: 5,
+    name: 'Vintage Velvet Wine',
+    price: '₦18,500',
+    oldPrice: '₦20,000',
+    image: 'https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=500&auto=format&fit=crop&q=60',
+    badge: ''
+  },
+  {
+    id: 6,
+    name: 'Golden Chiffon Drapery',
+    price: '₦9,000 / yard',
+    oldPrice: null,
+    image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=500&auto=format&fit=crop&q=60',
+    badge: 'Sale'
+  },
+  {
+    id: 7,
+    name: 'French Organza Mesh',
+    price: '₦30,000',
+    oldPrice: null,
+    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&auto=format&fit=crop&q=60',
+    badge: 'New'
+  },
+  {
+    id: 8,
+    name: 'Emerald Guinea Brocade',
+    price: '₦25,000',
+    oldPrice: '₦28,000',
+    image: 'https://images.unsplash.com/photo-1605380590457-41851e39e64e?w=500&auto=format&fit=crop&q=60',
+    badge: ''
   }
 ];
 
 export default function ProductShowcase() {
   return (
-    <section className="py-16 bg-[#fcfcfc]">
+    <section className="py-16 bg-[#fcfcfc] dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-end mb-10">
           <div>
-            <h2 className="text-3xl font-serif font-bold text-lust-dark mb-2">Featured Products</h2>
-            <p className="text-gray-500 text-sm">Our handpicked premium fabrics for you.</p>
+            <h2 className="text-3xl font-serif font-bold text-lust-dark dark:text-white mb-2">Featured Products</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm">Our handpicked premium fabrics for you.</p>
           </div>
-          <button className="hidden md:block underline text-lust-dark font-medium hover:text-lust-red transition-colors">
+          <button className="hidden md:block underline text-lust-dark dark:text-gray-300 font-medium hover:text-lust-red transition-colors">
             View All
           </button>
         </div>
@@ -79,9 +111,9 @@ export default function ProductShowcase() {
                     <Star key={i} className="w-3 h-3 fill-current" />
                   ))}
                 </div>
-                <h3 className="text-base font-medium text-gray-900 mb-1 line-clamp-1 group-hover:text-lust-red transition-colors">{product.name}</h3>
+                <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-1 line-clamp-1 group-hover:text-lust-red dark:group-hover:text-lust-red transition-colors">{product.name}</h3>
                 <div className="flex gap-2 items-baseline mt-auto">
-                  <span className="text-lg font-bold text-lust-dark">{product.price}</span>
+                  <span className="text-lg font-bold text-lust-dark dark:text-white">{product.price}</span>
                   {product.oldPrice && (
                     <span className="text-sm text-gray-400 line-through">{product.oldPrice}</span>
                   )}
@@ -91,7 +123,7 @@ export default function ProductShowcase() {
           ))}
         </div>
         
-        <button className="mt-8 md:hidden w-full border border-lust-dark text-lust-dark py-3 rounded-full font-medium hover:bg-lust-dark hover:text-white transition-colors">
+        <button className="mt-8 md:hidden w-full border border-lust-dark dark:border-gray-500 text-lust-dark dark:text-white py-3 rounded-full font-medium hover:bg-lust-dark dark:hover:bg-gray-100 hover:text-white dark:hover:text-lust-dark transition-colors">
           View All Products
         </button>
       </div>

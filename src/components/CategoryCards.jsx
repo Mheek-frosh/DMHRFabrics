@@ -29,10 +29,10 @@ const categories = [
 
 export default function CategoryCards() {
   return (
-    <section className="py-20 bg-white" id="shop">
+    <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300" id="shop">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-lust-dark mb-4">Shop by Category</h2>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-lust-dark dark:text-white mb-4">Shop by Category</h2>
           <div className="w-16 h-1 bg-lust-red"></div>
         </div>
         
