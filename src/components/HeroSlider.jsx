@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    title: "Elegance Woven Into Every Thread.",
-    subtitle: "Discover our premium selection of Ankara, Lace, and luxury fabrics. Perfect for your next bespoke outfit, embodying timeless style and modern grace.",
+    title: "New Arrivals",
+    subtitle: "Discover our premium selection of Ankara, Lace, and luxury fabrics. Perfect for your next bespoke outfit.",
     image: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=2012&auto=format&fit=crop",
-    badge: "New Arrival Collection"
+    badge: "FRESH STYLES JUST IN"
   },
   {
-    title: "Vibrant Patterns for Every Season.",
-    subtitle: "Step into the spotlight with our exclusively sourced plain and pattern materials. Tailored for comfort, designed for the bold.",
+    title: "Trending Styles",
+    subtitle: "Step into the spotlight with our exclusively sourced plain and pattern materials. Designed for the bold.",
     image: "https://images.unsplash.com/photo-1544441893-675973e31985?w=500&auto=format&fit=crop",
-    badge: "Trending Styles"
+    badge: "SEASON HIGHLIGHTS"
   }
 ]
 
@@ -25,50 +26,14 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, []);
 
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+
   return (
-    <div className="relative w-full min-h-[85vh] flex flex-col md:flex-row pt-20 bg-white dark:bg-lust-dark transition-colors duration-300">
-      {/* Left Content Area (Red Theme from reference) */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-lust-red text-white relative overflow-hidden">
-        
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl -ml-10 -mb-10"></div>
-        
-        <div className="max-w-xl relative z-10 animate-fade-in-up" key={currentSlide}>
-          <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-semibold mb-6 uppercase tracking-wider shadow-sm border border-white/30">
-            {slides[currentSlide].badge}
-          </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-6 tracking-tight text-white drop-shadow-md">
-            {slides[currentSlide].title}
-          </h1>
-          <p className="text-lg text-white/90 mb-10 max-w-lg leading-relaxed">
-            {slides[currentSlide].subtitle}
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-white text-lust-red hover:bg-gray-100 py-3 px-8 rounded-full font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Shop The Collection
-            </button>
-            <button className="bg-transparent border-2 border-white/50 text-white hover:bg-white/10 py-3 px-8 rounded-full font-medium transition-all">
-              Explore Vision
-            </button>
-          </div>
-        </div>
-
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-8 md:left-8 md:translate-x-0 flex gap-3 z-20">
-          {slides.map((_, idx) => (
-            <button 
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'}`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Right Image Area */}
-      <div className="w-full md:w-1/2 h-[50vh] md:h-auto relative">
+    <div className="relative w-full min-h-[85vh] flex pt-20 bg-[#161619] text-white overflow-hidden">
+      
+      {/* Right Image Area - Absolute positioned with Slant */}
+      <div className="absolute top-0 right-0 w-full h-[50vh] md:w-[65%] md:h-full z-0 transition-all duration-300 md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]">
         {slides.map((slide, idx) => (
           <div 
             key={idx}
@@ -79,9 +44,52 @@ export default function HeroSlider() {
               alt="Premium Fabric" 
               className="w-full h-full object-cover"
             />
-            {/* Dark mode overlay over image optionally, or just leave vivid */}
-            <div className="absolute inset-0 bg-black/10 dark:bg-black/30 transition-colors duration-300"></div>
+            {/* Dark overlay specifically for mobile text readability or just general contrast */}
+            <div className="absolute inset-0 bg-black/40 md:bg-black/10 transition-colors duration-300"></div>
           </div>
+        ))}
+      </div>
+
+      {/* Left Content Area */}
+      <div className="relative z-10 w-full md:w-[50%] flex flex-col justify-center px-8 md:pl-24 md:pr-12 pt-64 md:pt-16 pb-24 md:pb-0">
+        <div className="animate-fade-in-up" key={currentSlide}>
+          <span className="block text-[#a8905a] font-bold text-sm md:text-base tracking-[0.15em] mb-4 uppercase">
+            {slides[currentSlide].badge}
+          </span>
+          <h1 className="text-6xl md:text-8xl font-serif font-bold leading-none mb-6 text-gray-200 tracking-tight drop-shadow-lg">
+            {slides[currentSlide].title}
+          </h1>
+          <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-md font-light leading-relaxed">
+            {slides[currentSlide].subtitle}
+          </p>
+        </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button 
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-colors"
+        aria-label="Previous Slide"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button 
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-colors"
+        aria-label="Next Slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      {/* Carousel Indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+        {slides.map((_, idx) => (
+          <button 
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'}`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
         ))}
       </div>
     </div>
