@@ -38,7 +38,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-header py-4 shadow-sm' : 'bg-transparent py-6'}`}>
+    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-white dark:bg-lust-dark shadow-sm py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="text-2xl font-serif font-bold tracking-tighter text-lust-dark dark:text-white hover:text-lust-red transition-colors">

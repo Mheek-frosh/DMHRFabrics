@@ -30,7 +30,7 @@ export default function HeroSlider() {
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <div className="relative w-full min-h-[85vh] flex pt-20 bg-[#161619] text-white overflow-hidden">
+    <div className="relative w-full min-h-[85vh] flex mt-[72px] bg-[#161619] text-white overflow-hidden">
       
       {/* Right Image Area - Absolute positioned with Slant */}
       <div className="absolute top-0 right-0 w-full h-[50vh] md:w-[65%] md:h-full z-0 transition-all duration-300 md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]">
