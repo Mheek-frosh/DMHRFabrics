@@ -1,12 +1,13 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HeroSlider from './components/HeroSlider';
-import FlashDeals from './components/FlashDeals';
-import CategoryCards from './components/CategoryCards';
-import ProductShowcase from './components/ProductShowcase';
-import VisionSection from './components/VisionSection';
 import Footer from './components/Footer';
 import WhatsAppFAB from './components/WhatsAppFAB';
+
+import Home from './pages/Home';
+import Shop from './pages/Shop';
+import Vision from './pages/Vision';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
       <Header />
       
       <main className="flex-grow">
-        <HeroSlider />
-        <FlashDeals />
-        <CategoryCards />
-        <ProductShowcase />
-        <VisionSection />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/vision" element={<Vision />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </main>
 
       <Footer />

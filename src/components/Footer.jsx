@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -7,9 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="col-span-1 lg:col-span-1 border-b md:border-b-0 md:border-r border-gray-800 pb-8 md:pb-0 pr-0 md:pr-4">
-            <a href="#" className="text-2xl font-serif font-bold tracking-tighter text-white mb-6 inline-block">
+            <Link to="/" className="text-2xl font-serif font-bold tracking-tighter text-white mb-6 inline-block">
               DMHRFabrics
-            </a>
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Elegance woven into every thread. Your premier plug for premium Ankara, Lace, and plain materials.
             </p>
@@ -19,10 +20,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Home</a></li>
-              <li><a href="#shop" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Shop Fabrics</a></li>
-              <li><a href="#vision" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Our Vision</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-lust-red transition-colors text-sm">New Arrivals</a></li>
+              <li><Link to="/" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Home</Link></li>
+              <li><Link to="/shop" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Shop Fabrics</Link></li>
+              <li><Link to="/vision" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Our Vision</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-lust-red transition-colors text-sm">Contact Us</Link></li>
             </ul>
           </div>
 

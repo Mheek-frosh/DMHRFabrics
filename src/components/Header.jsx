@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Moon, Sun } from 'lucide-react';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       return document.documentElement.classList.contains('dark') || 
@@ -31,10 +33,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Shop', href: '#shop' },
-    { name: 'Vision', href: '#vision' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'Shop', href: '/shop' },
+    { name: 'Vision', href: '/vision' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   // The header now uses a solid background (bg-white/dark:bg-lust-dark) 
@@ -43,16 +45,20 @@ export default function Header() {
     <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-white dark:bg-lust-dark shadow-sm py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="text-2xl font-serif font-bold tracking-tighter text-lust-dark dark:text-white hover:text-lust-red transition-colors">
+        <Link to="/" className="text-2xl font-serif font-bold tracking-tighter text-lust-dark dark:text-white hover:text-lust-red transition-colors">
           DMHRFabrics
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-lust-red dark:hover:text-lust-red transition-colors">
+            <Link 
+              key={link.name} 
+              to={link.href} 
+              className={`text-sm font-medium transition-colors ${location.pathname === link.href ? 'text-lust-red' : 'text-gray-700 dark:text-gray-300 hover:text-lust-red dark:hover:text-lust-red'}`}
+            >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -96,9 +102,14 @@ export default function Header() {
             </button>
           </div>
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-lust-red transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link 
+              key={link.name} 
+              to={link.href} 
+              className={`text-lg font-medium transition-colors ${location.pathname === link.href ? 'text-lust-red' : 'text-gray-800 dark:text-gray-200 hover:text-lust-red'}`} 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
       )}
