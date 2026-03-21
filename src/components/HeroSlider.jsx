@@ -29,6 +29,8 @@ export default function HeroSlider() {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
+  // Shifted the HeroSlider down by mt-[72px] so the entire container and image
+  // begin strictly below the solid navbar, maintaining the reference image's proportions.
   return (
     <div className="relative w-full min-h-[85vh] flex mt-[72px] bg-[#161619] text-white overflow-hidden">
       

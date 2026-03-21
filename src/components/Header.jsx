@@ -37,6 +37,8 @@ export default function Header() {
     { name: 'Contact', href: '#contact' }
   ];
 
+  // The header now uses a solid background (bg-white/dark:bg-lust-dark) 
+  // on load rather than a transparent overlay, to match the reference image's nav style.
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-white dark:bg-lust-dark shadow-sm py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
