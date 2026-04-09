@@ -18,6 +18,8 @@ const allProducts = [
 
 const categories = ['All', 'Ankara', 'Lace', 'Plain', 'Senator'];
 
+// Shop page component: Displays the fabric collection with category filtering capabilities.
+// It manages the active category state and filters the displayed products accordingly.
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState('All');
 

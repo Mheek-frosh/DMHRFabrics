@@ -1,6 +1,8 @@
 import React from 'react';
 import VisionSection from '../components/VisionSection';
 
+// Vision page component: Displays the company's heritage, story, and mission.
+// It includes an introductory section, a detailed story with an image, and a reused VisionSection component.
 export default function Vision() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen pt-32 pb-24 transition-colors duration-300">
